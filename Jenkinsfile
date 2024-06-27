@@ -12,7 +12,7 @@ pipeline {
 	stage('Test') {
             steps {
 		withPythonEnv('venv312') {
-                	sh '/home/he/.pyenv/shims/pytest --junit-xml test-reports/results.xml sources/test_calc.py'
+                	sh 'python -m pytest --junit-xml test-reports/results.xml sources/test_calc.py'
             	    }
 		}
             post {
