@@ -21,5 +21,17 @@ pipeline {
                 }
             }
         }
+	 stage('Deliver') {
+            steps {
+		withPythonEnv('venv312') {
+                	sh "pyinstaller --onefile sources/add2vals.py"
+		}
+            }
+            post {
+                success {
+                    archiveArtifacts 'dist/add2vals'
+                }
+            }
+        }
     }
 }
