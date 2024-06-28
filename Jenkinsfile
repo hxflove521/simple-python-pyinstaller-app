@@ -12,7 +12,7 @@ pipeline {
 	stage('Test') {
             steps {
 		withPythonEnv('venv312') {
-                	sh 'python -m pytest sources/test_calc.py --html=report/result.html --self-contained-html'
+                	sh 'python -m pytest sources/test_calc.py —alluredir=build/allure-results'
             	    }
 		}
             post {
