@@ -12,7 +12,7 @@ pipeline {
 	stage('Test') {
             steps {
 		withPythonEnv('venv312') {
-                	sh 'python -m pytest sources/test_calc.py —alluredir=build/allure-results'
+                	sh 'python -m pytest sources/test_calc.py —alluredir=allure-results'
             	    }
 		}
             post {
@@ -20,7 +20,7 @@ pipeline {
                     allure includeProperties:
                      false,
                      jdk: '',
-                     results: [[path: 'build/allure-results']]
+                     results: [[path: 'allure-results']]
                 }
             }
         }
