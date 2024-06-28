@@ -12,12 +12,15 @@ pipeline {
 	stage('Test') {
             steps {
 		withPythonEnv('venv312') {
-                	sh 'python -m pytest --junit-xml test-reports/results.xml sources/test_calc.py'
+                	sh 'python -m pytest sources/test_calc.py --html=report/result.html --self-contained-html'
             	    }
 		}
             post {
-                always {
-                    junit 'test-reports/results.xml'
+		 always {
+                    allure includeProperties:
+                     false,
+                     jdk: '',
+                     results: [[path: 'build/allure-results']]
                 }
             }
         }
