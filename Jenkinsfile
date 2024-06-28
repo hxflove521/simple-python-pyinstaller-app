@@ -20,7 +20,7 @@ pipeline {
                     allure includeProperties:
                      false,
                      jdk: '',
-		     properties: [[key: '--name', value: ' GoogleAPI ']]
+		     properties: [[key: '--name', value: ' GoogleAPI ']],
                      results: [[path: 'allure-results']]
                 }
             }
