@@ -17,10 +17,9 @@ pipeline {
 		}
             post {
 		 always {
-                    allure includeProperties:
-                     false,
+                    allure includeProperties:false,
+			configPath: 'config.yml',
                      jdk: '',
-		     properties: [[key: '--name', value: ' GoogleAPI ']],
                      results: [[path: 'allure-results']]
                 }
             }
